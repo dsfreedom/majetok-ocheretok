@@ -1,0 +1,145 @@
+.top-bar {
+  background-color: #92ccb4;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  padding: 8px 15px;
+  z-index: 10;
+}
+
+.top-bar__logo-link {
+  height: 38px;
+}
+
+.top-bar__nav {
+  display: none;
+}
+
+.icon {
+  display: block;
+  height: 24px;
+  width: 24px;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.3s;
+}
+
+.icon--menu {
+  background-image: url("../images/icons/icon-burger-menu.png");
+}
+
+.icon--menu:hover {
+  background-image: url("../images/icons/Icon-Burger-menu-hover.svg");
+}
+
+.icon--close {
+  background-image: url("../images/icons/icon-close.png");
+}
+
+.menu {
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0b6060;
+  color: #1d1d1d;
+  font-weight: 600;
+  text-transform: uppercase;
+  overflow-y: auto;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 20;
+  transition: opacity 0.5s;
+}
+
+.menu:target {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.menu__wrapper {
+  max-width: 1260px;
+  margin-inline: auto;
+}
+
+.menu__top {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  margin-bottom: 32px;
+  padding-inline: 20px;
+}
+
+.menu__bottom {
+  padding-inline: 20px;
+}
+
+.menu__nav {
+  margin-bottom: 40px;
+}
+
+.nav__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.nav__link {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: inherit;
+  text-decoration: none;
+  font-size: 22px;
+  line-height: 22px;
+  letter-spacing: 2px;
+}
+
+.nav-link--phone {
+  color: #c68b14;
+}
+
+.nav__link--phone::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  display: block;
+  height: 1px;
+  width: 100%;
+  background-color: #ffffff;
+  transition: transform 0.3s;
+  transform: scale(0);
+  transform-origin: left;
+}
+
+.nav__link--phone:hover::after {
+  transform: scale(1);
+}
+
+.menu:target ~ *:not(.menu) {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .top-bar__nav {
+    display: flex;
+  }
+  .top-bar__menu {
+    display: none;
+  }
+  .nav__list {
+    flex-direction: row;
+    gap: 16px;
+  }
+  .nav__link {
+    font-size: 18px;
+    line-height: 18px;
+  }
+}
