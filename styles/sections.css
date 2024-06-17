@@ -6,10 +6,128 @@
   background-image: url("../images/header-1.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: right;
+  background-position: center;
 }
 
 .header__title {
+  text-align: center;
   color: #ffffff;
   margin-bottom: 70px;
+}
+
+.main {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+}
+
+.section {
+  padding: 20px 15px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  align-items: center;
+}
+
+.section--1 {
+  background-color: #f1c04e;
+}
+
+.section--2 {
+  background-color: #acd6c5;
+}
+
+.section__text {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+.section__title {
+  font-size: 24px;
+}
+
+.section__paragraph {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.section__image-wrapper {
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+  height: 100%;
+}
+
+.section__image {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease-in-out;
+}
+
+.section__image:hover {
+  transform: scale(1.05);
+}
+
+@media (min-width: 768px) {
+  .main {
+    margin-top: 30px;
+  }
+  
+  .section {
+    padding: 30px 0;
+    grid-template-columns: repeat(16, 1fr);
+    align-items: stretch;
+  }
+
+  .section__left--text {
+    grid-column: 3 / span 6;
+  }
+
+  .section__right--image {
+    grid-column: 11 / span 4;
+  }
+
+  .section__left--image {
+    grid-column: 3 / span 4;
+  }
+
+  .section__right--text {
+    grid-column: 9 / span 6;
+  }
+
+  .section__image-wrapper {
+    display: flex;
+    align-items: center;
+    height: auto;
+  }
+
+  .section__image {
+    max-height: 100%;
+    object-fit: cover;
+  }
+
+  .section__left .section__image-wrapper,
+  .section__right .section__image-wrapper {
+    height: 100%;
+  }
+
+  .section__left--text {
+    order: 1; /* Ensure text is first on mobile */
+  }
+
+  .section__right--image {
+    order: 2; /* Image second on mobile */
+  }
+
+  .section__left--image {
+    order: 1; /* Image first on mobile */
+  }
+
+  .section__right--text {
+    order: 2; /* Text second on mobile */
+  }
 }
